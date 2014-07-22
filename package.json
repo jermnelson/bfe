@@ -26,5 +26,9 @@
     "licenses": [{
         "type": "MIT",
         "url": "http://opensource.org/licenses/MIT"
-    }]
+    }],
+    "fedora": {
+        "host": "http://localhost:8080/rest/"
+    }
+   }
 }

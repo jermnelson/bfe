@@ -12,9 +12,25 @@
                 document.body.scrollTop = document.documentElement.scrollTop = 0;
                 document.getElementById("bfeditor").innerHTML = '<div class="row"><div class="col-md-12 text-right"><a href="index.html"><button type="button" class="btn btn-default btn-lg">Start Over</button></a></div></div><h1>Simple HTML View</h1><pre>' + humanized + '</pre><br /><h1>JSONLD-Expanded</h1><pre>' + JSON.stringify(jsonld, undefined, " ") + '</pre>';
             }
+
+            function fedoraCB(jsonld) {
+              
+              $.ajax({
+                 url: '/fedora',
+                 type: "POST",
+                 data: JSON.stringify(jsonld)
+              }).done(function (msg) { console.log("Message is " + msg) });
+           
+//              var httpRequest = new XMLHttpRequest();
+//              httpRequest.open('PUT', jsonld[0]['@id'], true);
+//              httpRequest.setRequestHeader('Content-Type', 'application/ld+json');
+//              httpRequest.send(JSON.stringify(jsonld));
+//              console.log("Finished callback");
+
+            }
             
             var config = {
-                "baseURI": "http://example.org/",
+                "baseURI": "http://localhost:8080/rest/",
                 "profiles": [
                     "/static/profiles/bibframe/Agents.json",
                     "/static/profiles/bibframe/Annotations.json",
@@ -47,7 +63,7 @@
                 ],
                 "return": {
                     "format": "jsonld-expanded",
-                    "callback": myCB
+                    "callback": fedoraCB
                 }
             }
 
