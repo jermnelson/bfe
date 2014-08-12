@@ -826,7 +826,7 @@ bfe.define('src/bfe', ['require', 'exports', 'module' , 'src/lib/jquery-2.1.0.mi
                             var $input = $('<div class="col-sm-8"><input class="form-control" id="' + property.guid + '" placeholder="' + property.propertyLabel + '" tabindex="' + tabIndices++ + '"></div>');
                     
                             $button = $('<button type="button" class="btn btn-default" tabindex="' + tabIndices++ + '">Set</button>');
-                            $(button).click(function(){
+                            $button.click(function(){
                                 setResourceFromLabel(fobject.id, rt.guid, property.guid);
                             });
                             
@@ -1900,9 +1900,9 @@ var Y=s();typeof define=="function"&&typeof define.amd=="object"&&define.amd?(G.
             groupedProperties = _.groupBy(groupedResources[resourceURI], function(t) { return t.p; });
             for (var propertyURI in groupedProperties) {
                 var prop = propertyURI;
-                if (propertyURI == "http://www.w3.org/1999/02/22-rdf-syntax-ns#type") {
-                    prop = "@type";
-                }
+                //if (propertyURI == "http://www.w3.org/1999/02/22-rdf-syntax-ns#type") {
+                //    prop = "@type";
+                //}
                 j[prop] = [];
                 groupedProperties[propertyURI].forEach(function(r) {
                     if (r.otype == "uri") {
