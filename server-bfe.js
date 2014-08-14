@@ -28,7 +28,7 @@ app.use('/fedora', function(req, res) {
        bf_decomposed_types.push(gType['@id']);
      }
      bf_graph[0]['@type'] = bf_decomposed_types;
-     console.log();
+     console.log(bf_graph);
      var bf_id = url.parse(bf_graph[0]['@id']);
      var add_request = http.request(
        { hostname: config.fedora.host,
